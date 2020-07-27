@@ -1,0 +1,60 @@
+// knot32m.fe
+
+// 3,2 torus knot with mobius band
+
+parameter maj_r = 2
+parameter min_r = 0.5
+
+boundary 1 parameter 1 
+x1:  cos(2*p1)*(maj_r + min_r*cos(3*p1))
+x2:  sin(2*p1)*(maj_r + min_r*cos(3*p1))
+x3:  min_r*sin(3*p1)
+
+vertices
+1    0.0*pi  boundary 1
+2    0.2*pi  boundary 1
+3    0.4*pi  boundary 1
+4    0.6*pi  boundary 1
+5    0.8*pi  boundary 1
+6    1.0*pi  boundary 1
+7    1.2*pi  boundary 1
+8    1.4*pi  boundary 1
+9    1.6*pi  boundary 1
+10   1.8*pi  boundary 1
+
+edges
+1     1 2 boundary 1
+2     2 3 boundary 1
+3     3 4 boundary 1
+4     4 5 boundary 1
+5     5 6 boundary 1
+6     6 7 boundary 1
+7     7 8 boundary 1
+8     8 9 boundary 1
+9     9 10 boundary 1
+10    10 1 boundary 1
+11    1 6
+12    2 7
+13    3 8
+14    4 9
+15    5 10
+
+faces
+1    10 11 -5 15
+2    11 6 -12 -1
+3    12 7 -13 -2
+4    13 8 -14 -3
+5    14 9 -15 -4
+
+read
+fix vertex where on_boundary 1
+fix edge where on_boundary 1
+
+read
+hessian_normal
+
+// typical evolution
+gogo := { refine edge where fixed; t .7;   // get more uniform triangulation
+          r; g 5; r; g 5; hessian;
+          r; g 5; hessian; hessian;
+        }

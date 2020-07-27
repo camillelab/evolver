@@ -1,0 +1,84 @@
+// knotrect.fe
+
+// orientable rectifiable current on trefoil knot
+
+
+parameter maj_r = 2      // torus major radius
+parameter min_r = 0.5    // torus minor radius
+parameter height = 1   // for vertical stretch
+
+boundary 1 parameter 1    // the knotted wire
+x1:  cos(2*p1)*(maj_r + min_r*cos(3*p1))
+x2:  sin(2*p1)*(maj_r + min_r*cos(3*p1))
+x3:  height*min_r*sin(3*p1)
+
+vertices
+1    0*pi/12  boundary 1 fixed
+2    2*pi/12  boundary 1 fixed
+3    3*pi/12  boundary 1 fixed
+4    4*pi/12  boundary 1 fixed
+5    5*pi/12  boundary 1 fixed
+6    6*pi/12  boundary 1 fixed
+7    8*pi/12  boundary 1 fixed
+8    10*pi/12  boundary 1 fixed
+9    11*pi/12  boundary 1 fixed
+10   12*pi/12  boundary 1 fixed
+11   13*pi/12  boundary 1 fixed
+12   14*pi/12  boundary 1 fixed
+13   16*pi/12  boundary 1 fixed
+14   18*pi/12  boundary 1 fixed
+15   19*pi/12  boundary 1 fixed
+16   20*pi/12  boundary 1 fixed
+17   21*pi/12  boundary 1 fixed
+18   22*pi/12  boundary 1 fixed
+
+edges
+1    1 2   boundary 1 fixed
+2    2 3   boundary 1 fixed
+3    3 4   boundary 1 fixed
+4    4 5   boundary 1 fixed
+5    5 6   boundary 1 fixed
+6    6 7   boundary 1 fixed
+7    7 8   boundary 1 fixed
+8    8 9   boundary 1 fixed
+9    9 10   boundary 1 fixed
+10  10 11   boundary 1 fixed
+11  11 12   boundary 1 fixed
+12  12 13   boundary 1 fixed
+13  13 14   boundary 1 fixed
+14  14 15   boundary 1 fixed
+15  15 16   boundary 1 fixed
+16  16 17   boundary 1 fixed
+17  17 18   boundary 1 fixed
+18  18 1   boundary 1 fixed
+19  10 1
+20  2  9
+21  3 14
+22  15 8
+23  18 11
+24  5 12
+25  6 17
+26  4 13
+27  16 7
+
+faces
+1   8 -20 2 21 14 22  // top center
+2   23 11 -24 5 25 17  // bottom center
+3   19 1 20 9 
+4   12 -26 4 24
+5   26 13 -21 3
+6   6 -27 16 -25
+7  27 7 -22 15
+8   18 -19 10 -23
+
+read
+
+hessian_normal
+
+// typical evolution
+gogo := { refine edge where fixed and (length > 2 or length < 1);
+          u; r; g 5; V; u; u; g 5; 
+          n .5;  // notching gets more vertices in highly curved region
+          u; u; g 5; g 5 ; r; 
+          g 5; V ; u ; V ; u; g 5; hessian; hessian; hessian;
+        }

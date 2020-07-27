@@ -1,0 +1,77 @@
+// knot32f.fe
+
+// 3,2 torus knot with soap film fully touching boundary
+
+parameter maj_r = 2
+parameter min_r = 0.5
+parameter height = 1
+
+boundary 1 parameter 1 convex
+x1:  cos(2*p1)*(maj_r + min_r*cos(3*p1))
+x2:  sin(2*p1)*(maj_r + min_r*cos(3*p1))
+x3:  height*min_r*sin(3*p1)
+
+vertices
+1    -pi/12 boundary 1 fixed
+2    pi/12  boundary 1  fixed
+3    3*pi/12  boundary 1  
+4    5*pi/12  boundary 1
+5    7*pi/12  boundary 1 fixed
+6    9*pi/12  boundary 1 fixed
+7    11*pi/12  boundary 1
+8    13*pi/12  boundary 1
+9    15*pi/12  boundary 1  fixed
+10   17*pi/12  boundary 1  fixed
+11   19*pi/12  boundary 1
+12   21*pi/12  boundary 1
+
+edges
+1     1 2 boundary 1 fixed
+2     2 3 boundary 1 fixed
+3     3 4 boundary 1
+4     4 5 boundary 1 fixed
+5     5 6 boundary 1 fixed
+6     6 7 boundary 1 fixed
+7     7 8 boundary 1
+8     8 9 boundary 1 fixed
+9     9 10 boundary 1 fixed
+10    10 11 boundary 1 fixed
+11    11 12 boundary 1
+12    12 1 boundary 1 fixed
+13   1 7
+14   2 8
+15   3 9
+16   4 10
+17   5 11
+18   6 12
+19   8 3  // triple line
+20   4 11 // triple line
+21   12 7 // triple line
+
+faces
+1    7 19 3 20 11 21 // center
+2    4 17 -20
+3    5 18 -11 -17
+4    6 -21 -18
+5    12 13 -21
+6    1 14 -7 -13
+7    2 -19 -14
+8    8 -15 -19
+9    15 9 -16 -3
+10   10 -20 16
+
+
+
+read
+hessian_normal
+
+// Fix vertices on wire except those where wire leaves film.
+fixer := { fix vertex where on_boundary 1 and id !=3 and id !=6 }
+
+// Typical evolution
+gogo := { g 20; U; r; g 20; V;V;V;V; u; g 20; r; g 20; V; V; g 20;
+	  r; g 20; V; V;
+	  fix vertex where on_boundary 1; k 0;  // so can use Hessian
+	  fix edge where on_boundary 1;
+	  hessian; hessian;
+	}
