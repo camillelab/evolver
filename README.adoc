@@ -5,7 +5,7 @@
 Surface Evolver is an interactive program for the modelling of liquid surfaces written by Ken Brakke. It can be used to model minimal surfaces spanning a given boundary (soap films!). Here is a summary of the files you can find here:
 
 `install.sh`:: An installation script for *evolver*. It should work on Linux provided that FreeGLUT is installed. The Debian/Ubuntu repositories also provides an *evolver* package.
-`blender-evolver.py`:: A script for *Blender* which is designed to export the selected mesh in *Blender* to the data file format of *evolver*. To use it, open the text editor with Shift-F11 in Blender. Open the script and run it with Alt-p.
+`blender-evolver.py`:: A script for *Blender* which is designed to export a selected mesh to the data file format of *evolver*. To use it, open the text editor with Shift-F11 in Blender. Open the script and run it with Alt-p.
 `data/*` :: Data files for *evolver*.
 `blender/*`:: Surfaces in .stl format (without tickness) and .blend format (with thickness).
 `expo/expo.pdf`:: A very short presentation of *evolver*.
