@@ -21,7 +21,7 @@ binary_stl >>> "filename.stl"
 However, the surface is exported as a mesh without thickness. To print the model, it is left to add thickness with a modelisation software such as Blender. I will try to write some help..
 
 == Links
-- https://www.imo.universite-paris-saclay.fr/~labourie/galerie.html[Some nice minimal surfaces to visualize]
+- http://www.mas.ucy.ac.cy/~clabou01/galerie.html[Some nice minimal surfaces to visualize]
 - https://facstaff.susqu.edu/brakke/[Web page of Ken Brakke, the author of Surface Evolver]
 - http://facstaff.susqu.edu/brakke/evolver/html/evolver.htm[Official documentation]
 - https://www.thingiverse.com/thing:1559227[A tutorial to modelize and print the surface "Trefunknot"]
