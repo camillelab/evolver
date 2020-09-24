@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 # = Installation script for Surface Evolver with OpenGL GLUT
-# .Requirements
-# ----
-# freeglut
-# ----
 
 # Exit on error.
 set -e
