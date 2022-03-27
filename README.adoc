@@ -11,7 +11,7 @@ Surface Evolver is an interactive program for the modelling of liquid surfaces w
 `expo/expo.pdf`:: A very short presentation of *evolver*.
 
 == How to export a STL file from the evolver console?
-Type
+Before launching *evolver*, make sure that an environment variable `EVOLVERPATH` is pointing to a folder containing the file `stl.cmd` (it should be `/usr/share/evolver` for a system install or a `$HOME/.local/share/evolver` for a local install). In an evolver session, type
 
 ----
 read "stl.cmd"
