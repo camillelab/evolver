@@ -8,7 +8,7 @@ Here is a summary of the files you can find here:
 
 * `install.sh`: An installation script. It should work on Linux provided that the FreeGLUT library is installed. The Debian/Ubuntu repositories also provide the package, under the name **evolver**.
 * `blender-evolver.py`: A script for Blender which is designed to export a selected mesh to the data file format of Evolver. In Blender, open the text editor with `Shift-F11`, open the script and then run it with `Alt-p`.
-* `data/*`: Data files for.
+* `data/*`: Data files.
 * `blender/*`: Surfaces in `.stl` format (without tickness) and `.blend` format (with thickness).
 * `expo/expo.pdf`: A very short presentation of Evolver.
 
