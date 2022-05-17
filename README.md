@@ -6,7 +6,7 @@
 It can be used to model minimal surfaces spanning a given boundary (soap films!).
 Here is a summary of the files you can find here:
 
-* `install.sh`: An installation script for Evolver. It should work on Linux provided that the FreeGLUT library is installed. The Debian/Ubuntu repositories also provides the package.
+* `install.sh`: An installation script for Evolver. It should work on Linux provided that the FreeGLUT library is installed. The Debian/Ubuntu repositories also provide the package, under the name **evolver**.
 * `blender-evolver.py`: A script for Blender which is designed to export a selected mesh to the data file format of Evolver. In Blender, open the text editor with `Shift-F11`, open the script and then run it with `Alt-p`.
 * `data/*`: Data files for Evolver.
 * `blender/*`: Surfaces in `.stl` format (without tickness) and `.blend` format (with thickness).
